@@ -7,6 +7,7 @@ import Logo from '../public/images/Logo.png';
 import fb from '../public/icons/fb.svg';
 import twitter from '../public/icons/x.svg';
 import ig from '../public/icons/ig.svg';
+
 import {
   NavigationMenu,
   NavigationMenuLink,
