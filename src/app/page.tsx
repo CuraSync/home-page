@@ -1,18 +1,15 @@
-import React from 'react';
-import Navbar from '../../components/navbar'; 
-import Footer from '../../components/footer';
-import HomePage from '../../components/index';
-
+import React from "react";
+import Navbar from "../components/common/navbar";
+import Footer from "../components/common/footer";
+import HomePage from "./home/page";
 
 const Page = () => {
   return (
     <div>
-      <Navbar/>
-      <HomePage/>
-      <Footer/>
+      <Navbar />
+      <HomePage />
+      <Footer />
     </div>
   );
 };
 export default Page;
-
-

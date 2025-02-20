@@ -1,18 +1,18 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../public/images/Logo.png';
-import fb from '../public/icons/fb.svg';
-import twitter from '../public/icons/x.svg';
-import ig from '../public/icons/ig.svg';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "../../../public/images/Logo.png";
+import fb from "../../..//public/icons/fb.svg";
+import twitter from "../../../public/icons/x.svg";
+import ig from "../../../public/icons/ig.svg";
 
 import {
   NavigationMenu,
   NavigationMenuLink,
   NavigationMenuList,
-} from '../components/navigation-menu';
+} from "./navigation-menu";
 
 const Navbar = () => {
   return (
@@ -60,13 +60,25 @@ const Navbar = () => {
 
         {/* Social Icons and User Login */}
         <div className="flex items-center space-x-4">
-          <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={fb} alt="Facebook" width={24} height={24} />
           </Link>
-          <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={twitter} alt="Twitter" width={24} height={24} />
           </Link>
-          <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={ig} alt="Instagram" width={24} height={24} />
           </Link>
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
