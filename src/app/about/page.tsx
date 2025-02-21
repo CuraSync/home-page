@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Navbar from "../../components/common/navbar";
 import Footer from "../../components/common/footer";
 
@@ -9,7 +10,7 @@ const About = () => {
     <div>
       <Navbar />
 
-      <div className="min-h-screen relative mt-10">
+      <div className="min-h-screen relative">
         {/* Background Layers */}
         <div className="absolute inset-0 z-0">
           <div
@@ -145,9 +146,11 @@ const About = () => {
               Want to learn more about CuraSync or join our mission to transform
               healthcare? We'd love to hear from you.
             </p>
-            <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors">
-              Contact Us
-            </button>
+            <Link href="/contact">
+              <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                Contact Us
+              </button>
+            </Link>
           </section>
         </div>
       </div>

@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../../public/images/Logo.png";
-import fb from "../../..//public/icons/fb.svg";
+import lin from "../../..//public/icons/lin.svg";
+import gh from "../../..//public/icons/gh.svg";
 import twitter from "../../../public/icons/x.svg";
 import ig from "../../../public/icons/ig.svg";
 import {
@@ -52,7 +53,8 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { href: "https://facebook.com", icon: fb, alt: "Facebook" },
+    { href: "https://github.com", icon: gh, alt: "Github" },
+    { href: "https://facebook.com", icon: lin, alt: "LinkedIn" },
     { href: "https://twitter.com", icon: twitter, alt: "Twitter" },
     { href: "https://instagram.com", icon: ig, alt: "Instagram" },
   ];
