@@ -144,7 +144,7 @@ const About = () => {
             </h2>
             <p className="text-gray-700 mb-6">
               Want to learn more about CuraSync or join our mission to transform
-              healthcare? We'd love to hear from you.
+              healthcare? We&apos;d love to hear from you.
             </p>
             <Link href="/contact">
               <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors">

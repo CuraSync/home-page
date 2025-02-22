@@ -3,14 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Shield,
-  Users,
-  FileText,
-  BarChart3,
-  TestTube,
-  Pill,
-} from "lucide-react";
+import { Shield, Users, FileText, TestTube } from "lucide-react";
 
 const features = [
   {
@@ -216,7 +209,7 @@ const HomePage = () => {
                 Customizable Platform
               </h3>
               <p className="text-gray-600">
-                Adapt the system to your specific healthcare facility's
+                Adapt the system to your specific healthcare facility&apos;s
                 requirements and workflows.
               </p>
             </div>

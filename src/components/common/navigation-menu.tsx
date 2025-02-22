@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 
 // Define the cn function directly in this file
 function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 const NavigationMenu = React.forwardRef<
@@ -55,7 +54,8 @@ const NavigationMenuTrigger = React.forwardRef<
     )}
     {...props}
   >
-    {children} <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+    {children}{" "}
+    <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
   </NavigationMenuPrimitive.Trigger>
 ));
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
@@ -68,10 +68,7 @@ const NavigationMenuContent = React.forwardRef<
 >(({ className = "", ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
-    className={cn(
-      "left-0 top-0 w-full md:absolute md:w-auto",
-      className
-    )}
+    className={cn("left-0 top-0 w-full md:absolute md:w-auto", className)}
     {...props}
   />
 ));
@@ -92,7 +89,8 @@ const NavigationMenuViewport = React.forwardRef<
     />
   </div>
 ));
-NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
+NavigationMenuViewport.displayName =
+  NavigationMenuPrimitive.Viewport.displayName;
 
 const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -109,7 +107,8 @@ const NavigationMenuIndicator = React.forwardRef<
     <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
   </NavigationMenuPrimitive.Indicator>
 ));
-NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+NavigationMenuIndicator.displayName =
+  NavigationMenuPrimitive.Indicator.displayName;
 
 export {
   NavigationMenu,
