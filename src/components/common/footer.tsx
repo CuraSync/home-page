@@ -28,7 +28,7 @@ const Footer = () => {
 
           <div className="flex space-x-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/CuraSync"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -41,7 +41,7 @@ const Footer = () => {
               />
             </Link>
             <Link
-              href="https://linkedIn.com"
+              href="https://www.linkedin.com/company/curasync/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,7 +54,7 @@ const Footer = () => {
               />
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://x.com/CuraSync_Health"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +67,7 @@ const Footer = () => {
               />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/curasync/"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -69,6 +69,7 @@ const HomePage = () => {
   const scrollAmount = useRef(0);
 
   useEffect(() => {
+    if (typeof window === "undefined") return; // Ensures it only runs on the client
     const scrollContainer = featuresRef.current;
     if (scrollContainer) {
       const scrollStep = 1;

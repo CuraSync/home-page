@@ -53,10 +53,14 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { href: "https://github.com", icon: gh, alt: "Github" },
-    { href: "https://facebook.com", icon: lin, alt: "LinkedIn" },
-    { href: "https://twitter.com", icon: twitter, alt: "Twitter" },
-    { href: "https://instagram.com", icon: ig, alt: "Instagram" },
+    { href: "https://github.com/CuraSync", icon: gh, alt: "Github" },
+    {
+      href: "https://www.linkedin.com/company/curasync/",
+      icon: lin,
+      alt: "LinkedIn",
+    },
+    { href: "https://x.com/CuraSync_Health", icon: twitter, alt: "Twitter" },
+    { href: "https://www.instagram.com/curasync/", icon: ig, alt: "Instagram" },
   ];
 
   return (
