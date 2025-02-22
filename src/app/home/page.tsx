@@ -2,86 +2,74 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../../components/ui/dropdown-menu";
+  Shield,
+  Users,
+  FileText,
+  BarChart3,
+  TestTube,
+  Pill,
+} from "lucide-react";
 
-const services = [
+const features = [
   {
-    title: "AI Powered Report Visualization",
+    icon: <Users className="w-8 h-8 text-blue-600" />,
+    title: "Patient Management",
     description:
-      "Simplifies lab reports with AI, showing data in easy-to-understand graphs.",
+      "Streamline patient care coordination with intuitive tools for registration, appointments, and record-keeping.",
     image: "/images/service1.png",
   },
   {
-    title: "Secure Communication",
+    icon: <FileText className="w-8 h-8 text-green-600" />,
+    title: "Electronic Health Records",
     description:
-      "Enables private, encrypted messaging between patients, doctors, labs, and pharmacies.",
+      "Access and manage comprehensive patient histories through secure digital health records.",
     image: "/images/service2.png",
   },
   {
-    title: "Centralized Medical Records",
+    icon: <TestTube className="w-8 h-8 text-purple-600" />,
+    title: "Laboratory Integration",
     description:
-      "Combines medical histories, prescriptions, and reports in one accessible platform.",
+      "Seamlessly connect with laboratory systems for efficient test results management.",
     image: "/images/service3.png",
   },
   {
-    title: "Health Tracking Dashboard",
+    icon: <Shield className="w-8 h-8 text-slate-600" />,
+    title: "Data Security",
     description:
-      "Displays health trends and alerts for medications and appointments in an interactive timeline.",
+      "Protect sensitive healthcare information with advanced security measures and compliance standards.",
     image: "/images/service4.png",
-  },
-  {
-    title: "Multi-role Integration",
-    description:
-      "Supports patients, doctors, labs, and pharmacies with tailored tools for each role.",
-    image: "/images/service5.png",
-  },
-  {
-    title: "Patient-Doctor Management",
-    description:
-      "Provides tools for managing patient lists, sharing records, and tracking health updates.",
-    image: "/images/service6.png",
   },
 ];
 
-const blogs = [
+const values = [
   {
-    title: "Vitamin injections for a better future",
-    date: "22 January, 2024",
-    img: "/images/news1.png",
+    title: "Innovation",
+    description:
+      "Developing cutting-edge solutions for real healthcare challenges",
   },
   {
-    title: "New advancements in AI technology",
-    date: "15 February, 2024",
-    img: "/images/news2.png",
+    title: "Security",
+    description: "Prioritizing protection of sensitive healthcare data",
   },
   {
-    title: "Health benefits of a balanced diet",
-    date: "10 March, 2024",
-    img: "/images/news3.png",
+    title: "Accessibility",
+    description: "Making healthcare management tools available to everyone",
   },
   {
-    title: "The future of renewable energy",
-    date: "5 April, 2024",
-    img: "/images/news4.png",
-  },
-  {
-    title: "Innovations in medical research",
-    date: "20 May, 2024",
-    img: "/images/news5.png",
+    title: "Collaboration",
+    description:
+      "Creating a connected ecosystem for better healthcare delivery",
   },
 ];
 
 const HomePage = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
   const scrollAmount = useRef(0);
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
+    const scrollContainer = featuresRef.current;
     if (scrollContainer) {
       const scrollStep = 1;
       const scrollInterval = setInterval(() => {
@@ -101,110 +89,146 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="relative w-full h-[80vh]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      {/* Hero Section with Background Image */}
+      <div className="relative h-[80vh] overflow-hidden">
+        {/* Background Image */}
         <Image
-          src="/images/backimg.png"
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          src="/images/bg.jpg" // You'll need to add this image to your public folder
+          alt="Healthcare professionals"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-800/90" />
+
+        {/* Optional Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+          }}
         />
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-8 space-y-4">
-          <h1 className="text-gray-50 text-5xl font-bold">
-            Trusted & Reliable
-          </h1>
-          <h2 className="text-gray-50 text-5xl font-bold">
-            Better Healthcare for the World
-          </h2>
-          <p className="text-gray-50 text-lg max-w-2xl">
-            CuraSync is a comprehensive virtual care program designed to support
-            your journey to better health. The program focuses on helping you
-            achieve meaningful health improvements with ease and convenience.
-            With CuraSync, you have a trusted partner dedicated to empowering
-            you to live a healthier life.
-          </p>
-          <button className="bg-blue-500 text-white px-6 py-3 rounded text-lg font-medium hover:bg-blue-600">
-            Get Started
-          </button>
-        </div>
-      </div>
-
-      {/* Second Image and Philosophy Section */}
-      <div className="flex justify-between items-start p-10">
-        <Image
-          src="/images/secondimg.png"
-          alt="Second Image"
-          width={500}
-          height={400}
-        />
-        <div className="bg-blue-100 border border-blue-300 rounded-lg shadow-lg p-10 w-full md:w-3/4 ml-10">
-          <p className="text-2xl font-semibold mb-4 text-center">
-            Our Philosophy
-          </p>
-          <p className="mb-4 text-center">
-            At CuraSync, we believe that healthcare should be simple,
-            accessible, and empowering for everyone. Our platform is built on
-            the principles of connection, innovation, and trust:
-          </p>
-          <ul className="mb-4 text-center">
-            <li>
-              <strong>Connection:</strong> Uniting patients, doctors, labs, and
-              pharmacies for seamless healthcare.
-            </li>
-            <li>
-              <strong>Innovation:</strong> Harnessing technology for
-              personalized insights and communication.
-            </li>
-            <li>
-              <strong>Trust:</strong> Securing your data and supporting your
-              health journey.
-            </li>
-          </ul>
-          <p className="mb-4 text-center">
-            We are transforming healthcare into a collaborative, transparent
-            process, empowering you to take charge of your well-being. Together,
-            we are building a healthier future.
-          </p>
-          <div className="text-center">
-            <button className="bg-blue-500 text-white px-6 py-3 rounded text-lg font-medium hover:bg-blue-600">
-              Learn More
-            </button>
+        <div className="absolute inset-0 flex flex-col justify-center px-8 max-w-7xl mx-auto">
+          <div className="space-y-6 max-w-2xl">
+            <h1 className="text-white text-5xl font-bold leading-tight">
+              Transform Healthcare Management with CuraSync
+            </h1>
+            <p className="text-gray-100 text-xl">
+              An all-in-one solution that empowers healthcare providers and
+              improves patient care through innovative digital tools and
+              seamless integration.
+            </p>
+            <div className="flex space-x-4">
+              <Link
+                href="/services"
+                className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Explore Features
+              </Link>
+              <Link
+                href="/about"
+                className="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-block"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Services & Specialties Section */}
-      <div className="p-10">
-        <p className="text-2xl font-semibold mb-4 text-center">
-          Services & Specialties
-        </p>
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide space-x-6 px-4 py-6"
-        >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="min-w-[300px] bg-white border rounded-lg shadow-lg p-4 space-y-4"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                width={300}
-                height={150}
-                className="w-full h-[150px] object-cover rounded-lg"
-              />
-              <h3 className="text-lg font-semibold">{service.title}</h3>
-              <p className="text-sm text-gray-600">{service.description}</p>
-              <button className="text-blue-500 text-sm font-medium hover:underline">
-                Get Details →
-              </button>
+      {/* About Section */}
+      <div id="about" className="py-20 px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
+          Transforming Healthcare Through Innovation
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <p className="text-gray-600 text-lg">
+              Founded with a vision to revolutionize healthcare management,
+              CuraSync emerged from a deep understanding of the challenges faced
+              by healthcare providers and patients.
+            </p>
+            <p className="text-gray-600 text-lg">
+              Our platform brings together expertise in healthcare, technology,
+              and user experience design to create a unified solution that
+              addresses real-world healthcare challenges.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {values.map((value, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
+                <h3 className="text-xl font-semibold text-blue-600 mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div id="features" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            Comprehensive Healthcare Solutions
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              >
+                <div className="mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Section */}
+      <div className="bg-blue-50 py-20">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            Why Choose CuraSync?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-blue-600 mb-4">
+                All-in-One Solution
+              </h3>
+              <p className="text-gray-600">
+                Integrate all your healthcare management needs in a single,
+                unified platform.
+              </p>
             </div>
-          ))}
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-blue-600 mb-4">
+                Customizable Platform
+              </h3>
+              <p className="text-gray-600">
+                Adapt the system to your specific healthcare facility's
+                requirements and workflows.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-blue-600 mb-4">
+                24/7 Support
+              </h3>
+              <p className="text-gray-600">
+                Access round-the-clock technical support and training for your
+                team.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
