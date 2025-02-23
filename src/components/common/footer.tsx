@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import lin from "../../..//public/icons/lin.svg";
@@ -8,6 +11,31 @@ import ig from "../../../public/icons/ig.svg";
 import Logo from "../../../public/images/Logo.png";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyWPtaVFICSiwuzkatl6OmN8C4WhijtEritLct7j099Ck6NJAWCHmEtjVz6uPpoVA2t1g/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+          mode: "no-cors",
+        }
+      );
+
+      // Since the response is opaque, you won't be able to access the response body
+      setMessage("Thank you for subscribing! 🎉");
+      setIsError(false);
+    } catch {
+      setMessage("Subscription failed. Please try again later.");
+      setIsError(true);
+    }
+  };
   return (
     <div className="w-full bg-white text-black p-4 sm:p-6 md:p-8">
       <hr className="border-t border-gray-300 mb-6 sm:mb-8" />
@@ -19,9 +47,9 @@ const Footer = () => {
             <Image
               src={Logo}
               alt="CuraSync Logo"
-              width={24}
+              width={28}
               height={24}
-              className="w-6 h-6"
+              className="w-auto h-auto"
             />
             <h2 className="text-lg font-bold">CuraSync</h2>
           </div>
@@ -110,20 +138,37 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="self-stretch flex flex-col sm:flex-row justify-start items-start gap-3">
-                <div className="w-full sm:grow shrink basis-0">
-                  <div className="w-full p-3 rounded-lg border border-[#d6d6d6]">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full text-[#a6a7ab] text-sm font-normal leading-tight focus:outline-none"
-                    />
+              <form onSubmit={handleSubmit} className="w-full">
+                <div className="self-stretch flex flex-col sm:flex-row justify-start items-start gap-3">
+                  <div className="w-full sm:grow shrink basis-0">
+                    <div className="w-full p-3 rounded-lg border border-[#d6d6d6]">
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        className="w-full text-[#a6a7ab] text-sm font-normal leading-tight focus:outline-none"
+                        onChange={(e) => setEmail(e.target.value)}
+                        style={{ width: "100%" }} // Extend the length of the email input box
+                        required
+                      />
+                    </div>
                   </div>
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto mt-3 sm:mt-0 px-5 py-3 bg-[#0eb4d3] rounded-lg justify-center items-center gap-2 flex text-[#fdfdfd] text-sm font-normal hover:bg-[#0ca0bc] transition-colors"
+                  >
+                    Subscribe
+                  </button>
                 </div>
-                <button className="w-full sm:w-auto mt-3 sm:mt-0 px-5 py-3 bg-[#0eb4d3] rounded-lg justify-center items-center gap-2 flex text-[#fdfdfd] text-sm font-normal hover:bg-[#0ca0bc] transition-colors">
-                  Subscribe
-                </button>
-              </div>
+                {message && (
+                  <p
+                    className={`mt-2 text-sm ${
+                      isError ? "text-red-500" : "text-green-500"
+                    }`}
+                  >
+                    {message}
+                  </p>
+                )}
+              </form>
             </div>
           </div>
         </div>

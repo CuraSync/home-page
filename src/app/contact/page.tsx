@@ -6,10 +6,12 @@ import Navbar from "../../components/common/navbar";
 import Footer from "../../components/common/footer";
 
 const ContactForm = () => {
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     street: "",
-    city: "",
     postcode: "",
     phone: "",
     email: "",
@@ -27,9 +29,30 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwKKaX4G_iLoyRuxaqecZ0I6KLG5KVETjsq8Lv3_XU-9ybxIiYrxP0QIoq5zBpEC1UK/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+          mode: "no-cors",
+        }
+      );
+
+      // Since the response is opaque, you won't be able to access the response body
+      setMessage(
+        "Thank you for reaching out! We will get back to you shortly."
+      );
+      setIsError(false);
+    } catch {
+      setMessage(
+        "Submission failed. Please try again later or contact support if the issue persists."
+      );
+      setIsError(true);
+    }
   };
 
   return (
@@ -55,6 +78,7 @@ const ContactForm = () => {
                     className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     value={formData.name}
                     onChange={handleInputChange}
+                    required
                   />
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -83,6 +107,7 @@ const ContactForm = () => {
                     className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     value={formData.phone}
                     onChange={handleInputChange}
+                    required
                   />
 
                   <input
@@ -92,6 +117,7 @@ const ContactForm = () => {
                     className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     value={formData.email}
                     onChange={handleInputChange}
+                    required
                   />
 
                   <textarea
@@ -125,6 +151,17 @@ const ContactForm = () => {
                   </button>
                 </div>
               </form>
+              {message && (
+                <p
+                  className={`mt-4 text-sm p-3 rounded-lg shadow-md transition-all duration-300 ${
+                    isError
+                      ? "text-red-700 bg-red-100 border border-red-300"
+                      : "text-green-700 bg-green-100 border border-green-300"
+                  }`}
+                >
+                  {message}
+                </p>
+              )}
             </div>
           </div>
         </div>

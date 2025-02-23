@@ -118,16 +118,16 @@ const HomePage = () => {
               improves patient care through innovative digital tools and
               seamless integration.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-col min-[495px]:flex-row gap-4">
               <Link
                 href="/services"
-                className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors text-center whitespace-nowrap min-w-[200px] flex-shrink-0"
               >
                 Explore Features
               </Link>
               <Link
                 href="/about"
-                className="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-block"
+                className="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-center whitespace-nowrap min-w-[200px] flex-shrink-0"
               >
                 Learn More
               </Link>
