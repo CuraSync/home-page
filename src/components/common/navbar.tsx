@@ -73,8 +73,8 @@ const Navbar = () => {
               <Image
                 src={Logo}
                 alt="Logo"
-                width={isMobile ? 40 : 50}
-                height={isMobile ? 40 : 50}
+                width={isMobile ? 33 : 43}
+                height={isMobile ? 33 : 43}
                 className="w-auto h-auto"
               />
               <span className="font-bold text-lg sm:text-xl md:text-2xl">

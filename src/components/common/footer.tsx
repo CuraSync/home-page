@@ -47,9 +47,9 @@ const Footer = () => {
             <Image
               src={Logo}
               alt="CuraSync Logo"
-              width={24}
+              width={28}
               height={24}
-              className="w-6 h-6"
+              className="w-auto h-auto"
             />
             <h2 className="text-lg font-bold">CuraSync</h2>
           </div>
