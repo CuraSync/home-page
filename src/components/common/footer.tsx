@@ -148,6 +148,7 @@ const Footer = () => {
                         className="w-full text-[#a6a7ab] text-sm font-normal leading-tight focus:outline-none"
                         onChange={(e) => setEmail(e.target.value)}
                         style={{ width: "100%" }} // Extend the length of the email input box
+                        required
                       />
                     </div>
                   </div>
