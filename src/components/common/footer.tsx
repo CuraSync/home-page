@@ -18,7 +18,7 @@ const Footer = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      const response = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbyWPtaVFICSiwuzkatl6OmN8C4WhijtEritLct7j099Ck6NJAWCHmEtjVz6uPpoVA2t1g/exec",
         {
           method: "POST",
@@ -31,7 +31,7 @@ const Footer = () => {
       // Since the response is opaque, you won't be able to access the response body
       setMessage("Thank you for subscribing! 🎉");
       setIsError(false);
-    } catch (error) {
+    } catch {
       setMessage("Subscription failed. Please try again later.");
       setIsError(true);
     }

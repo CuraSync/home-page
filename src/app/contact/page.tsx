@@ -32,7 +32,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbwKKaX4G_iLoyRuxaqecZ0I6KLG5KVETjsq8Lv3_XU-9ybxIiYrxP0QIoq5zBpEC1UK/exec",
         {
           method: "POST",
@@ -47,7 +47,7 @@ const ContactForm = () => {
         "Thank you for reaching out! We will get back to you shortly."
       );
       setIsError(false);
-    } catch (error) {
+    } catch {
       setMessage(
         "Submission failed. Please try again later or contact support if the issue persists."
       );
