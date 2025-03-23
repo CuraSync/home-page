@@ -120,10 +120,10 @@ const HomePage = () => {
             </p>
             <div className="flex flex-col min-[495px]:flex-row gap-4">
               <Link
-                href="/services"
+                href="https://app.curasync.org/"
                 className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors text-center whitespace-nowrap min-w-[200px] flex-shrink-0"
               >
-                Explore Features
+                Get Started
               </Link>
               <Link
                 href="/about"

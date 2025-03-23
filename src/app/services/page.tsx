@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Navbar from "../../components/common/navbar";
 import Footer from "../../components/common/footer";
+import Link from "next/link";
 
 const HospitalServices = () => {
   const services = [
@@ -91,7 +92,9 @@ const HospitalServices = () => {
             Ready to transform your hospital management?
           </h2>
           <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
-            Get Started with CuraSync
+            <Link href="https://app.curasync.org/">
+              Get Started with CuraSync
+            </Link>
           </button>
         </div>
 
