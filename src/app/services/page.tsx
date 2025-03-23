@@ -91,11 +91,11 @@ const HospitalServices = () => {
           <h2 className="text-2xl font-bold mb-4">
             Ready to transform your hospital management?
           </h2>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
-            <Link href="https://app.curasync.org/">
+          <Link href="https://app.curasync.org/">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
               Get Started with CuraSync
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
 
         <div className="bg-blue-50 rounded-lg p-8 mt-12">
