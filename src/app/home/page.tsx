@@ -136,6 +136,28 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Video Section */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            See CuraSync in Action
+          </h2>
+          <p className="text-gray-600 text-lg text-center max-w-3xl mx-auto mb-12">
+            Watch how our platform streamlines healthcare management and
+            improves patient care.
+          </p>
+          <div className="aspect-video w-full max-w-4xl mx-auto shadow-xl rounded-xl overflow-hidden">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/CMcRtIpv9Mw"
+              title="CuraSync Platform Overview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
       {/* About Section */}
       <div id="about" className="py-20 px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
